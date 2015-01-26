@@ -1,0 +1,191 @@
+
+.pill {
+  color: #FA6900;
+}
+
+.goldfish {
+  color: #F38630;
+}
+
+.pond {
+  color: #A7DBD8;
+}
+
+.aoi {
+  color: #69D2E7;
+}
+
+.aoi-b {
+  background: #69D2E7;
+}
+
+.beach {
+  color: #E0E4CC;
+}
+.aqua {
+  /*background: #7FB7BE;*/
+  /*background: #A7DBD8;*/
+  /*background-image: url('/app/assets/images/checks.png');*/
+  /*color: white;*/
+}
+.red-text {
+  color: #BC2C1A;
+}
+
+.yellow-text {
+  color: #DACC3E;
+}
+
+.field {
+  border-radius: 10px;
+  border: none;
+  margin: 5px 0px 5px 0px;
+  padding: 2px 5px 2px 5px;
+  font-family: 'Open Sans';
+  font-size: .8em;
+  display: inline;
+  /*margin: 0 auto;*/
+}
+
+.date {
+  font-weight: 300;
+}
+
+.well {
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#nav {
+  border:none;
+}
+
+.tag {
+  margin: 5px;
+  font-family: 'Open Sans';
+  /*display: block;*/
+}
+
+.sub-button {
+  display: block;
+  border: none;
+  border-radius: 20px;
+  margin-top: 15px;
+  font-family: 'Open Sans';
+  font-weight: bold;
+  background: #555;
+  color: white;
+}
+
+.sub-button:hover {
+  background: white;
+  color: #555;
+}
+
+#photo {
+  margin-top: -70px;
+  height: 380px;
+  /*opacity: .8;*/
+  /*-moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";*/
+  height: 430px;
+
+}
+
+
+#ada {
+  font-size: 4.3em;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Poiret One';
+  color: black;
+}
+
+.post-title:hover {
+  text-decoration: none;
+  color: #FF6700;
+
+}
+
+a:hover {
+  text-decoration: none;
+  color: #FF6700;
+}
+
+a:visited {
+  color: grey;
+}
+.site-heading2 {
+  width: 300px;
+  margin-top: 80px;
+}
+
+#links {
+  color: black;
+  font-size: .8em;
+}
+
+#links:hover {
+  color: #FF6700;
+}
+
+#at {
+  font-family: 'Cabin';
+  color: #FF6700;
+
+}
+
+
+
+#logo {
+  font-family: 'Poiret One';
+  font-size: 1.5em;
+  color: black;
+}
+
+#at-sm {
+  font-family: 'Cabin';
+  color: #FF6700;
+  margin-top: 90px;
+}
+
+
+#other-nav {
+  box-shadow: 2px 2px 2px lightgrey;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .site-heading2 {
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+    margin-top: 0px;
+    width: auto;
+    position: absolute;
+    z-index: 50;
+    font-size: .4em;
+    margin-left: 10px;
+  }
+  #ada {
+    font-size: 4em;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 992px) {
+
+  .well {
+    font-size: 1.3em;
+  }
+
+  .well h4 {
+    font-size: 1.4em;
+  }
+}

@@ -1,0 +1,184 @@
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top" id = "post-nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a ui-sref="home" id = "links">Home</a>
+        </li>
+        <li>
+          <a ui-sref="posts" id = "links">Posts</a>
+        </li>
+        <li>
+          <a ui-sref="about" id = "links">About</a>
+        </li>
+        <li>
+          <a ui-sref="contact" id = "links">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('../app/assets/images/me5.jpg')" id = "photo">
+  <div class="container">
+    <div class="row">
+      <div class="">
+        <div class="site-heading2">
+          <span id = "ada"><span id ="lily">Lily</span> <span id ="at">@</span> <span id ="ad">Ada</span></span>
+          <!-- <hr class="small"> -->
+          <!-- <span class="subheading">A Clean Blog Theme by Start Bootstrap</span> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <!-- <div ng-controller="ButtonsCtrl">
+        <h4>Single toggle</h4>
+        <pre>{{singleModel}}</pre>
+        <button type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+      </div> -->
+      <div ng-controller="homeController">
+        <span ng-repeat="post in posts">
+          <div class="post-preview">
+            <a href="post">
+              <h2 class="post-title text-center">{{post.title}}</h2>
+            </a>
+              <h3 class="post-subtitle text-center">{{post.date | date:'EEEE'}}</h3>
+            <p class = "text-center">{{post.content}}</p>
+            <p class="post-meta text-center">Posted by <a href="#">Lily</a></p><hr>
+          </div>
+        </div>
+        <!-- <hr> -->
+      </span>
+
+      <!-- Pager -->
+      <!-- <ul class="pager">
+        <li class="next">
+          <a href="#">Older Posts &rarr;</a>
+        </li>
+      </ul> -->
+    </div>
+  </div>
+</div>
+
+<!-- <hr> -->
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          <li>
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; Lily Pace 2015</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="app/js/clean-blog.min.js"></script>
+
+<!-- <div ng-controller="homeController">
+  <div class="col-md-4">
+    <div class="well aqua">
+      <input type="text" ng-model="search" class = "field" placeholder = "Search"/>
+      <br>
+      <input type="text" ng-model="search.title" class = "field" placeholder = "Search by Title">
+      <br>
+      <span ng-if="post.tag_ds.length > 0">
+        Tags:
+      </span>
+      <span ng-repeat="tag in tags">
+        <input type="checkbox" value="tag.id" ng-click="addTag(tag.id)"><span class = "tag">{{tag.name}}</span></input>
+      </span><br>
+      tag array is {{tagArray}}<br>
+
+      search is: {{search}}
+      <br><br>
+    </div>
+    <div class="well aqua">
+      <h4>New Post</h4>
+        <div class="form">
+          <input type="text" ng-model="newPost.title" class = "field" placeholder = "Title"/><br>
+          <input type="text" ng-model="newPost.content" class = "field" placeholder = "Content"/><br>
+            <span ng-repeat="tag in tags"><br>
+            <input type="checkbox" value="tag.id" ng-click="toggleId(tag.id)"><span class = "tag">{{tag.name}}</span></input>
+          </span>
+          <button class = "center-block sub-button" ng-click="submitNewPost()">
+            Create
+          </button><br>
+      </div>
+      </div>
+  </div>
+  <div class="col-md-8">
+    <span ng-repeat="post in posts | filter:search:strict">
+
+      <a ui-sref="show({id: post.id})">
+        <h2 class = "abril dimgrey">{{post.title}}</h2>
+      </a>
+      <h4 class = "abril darkgrey">{{post.date | date:'EEEE'}}</h4>
+      <p>{{post.content}}</p>
+      <small ng-repeat="tag_id in post.tag_ids">
+        {{getTagName(tag_id)}}
+      </small>
+      <hr>
+
+    </span>
+  </div>
+</div> -->

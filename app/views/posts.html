@@ -1,0 +1,163 @@
+<div class="container">
+  <div class="row">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top" id = "other-nav">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id = "logo" href="index.html">Lily <span id ="at-sm">@</span> Ada</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a ui-sref="home" id = "links">Home</a>
+            </li>
+            <li>
+              <a ui-sref="posts" id = "links">Posts</a>
+            </li>
+            <li>
+              <a ui-sref="about" id = "links">About</a>
+            </li>
+            <li>
+              <a ui-sref="contact" id = "links">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top" id = "nav" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Blahg</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a ui-sref="home">Home</a>
+            </li>
+            <li>
+              <a ui-sref="posts">Contact</a>
+            </li>
+            <li>
+              <a ui-sref="about">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+    <div ng-controller="homeController">
+      <div class="col-md-4">
+        <div class="well aqua">
+          <h4>Search Posts</h4>
+          <input type="text" ng-model="search" class = "field" placeholder = "Search"/>
+          <br>
+          <input type="text" ng-model="search.title" class = "field" placeholder = "Search by Title">
+          <br>
+          <br>
+          <!-- <span ng-if="post.tag_ds.length > 0">
+          Tags:
+        </span> -->
+        <span ng-repeat="tag in tags">
+          <input type="checkbox" value="tag.id" ng-click="addTag(tag.id)"><span class = "tag">{{tag.name}}</span></input></br>
+        </span><br>
+        tag array is {{tagArray}}<br>
+
+        search is: {{search}}
+        <br><br>
+      </div>
+      <div class="well aqua">
+        <h4>New Post</h4>
+        <div class="form">
+          <input type="text" ng-model="newPost.title" class = "field" placeholder = "Title"/><br>
+          <input type="text" ng-model="newPost.content" class = "field" placeholder = "Content"/><br>
+          <span ng-repeat="tag in tags"><br>
+            <input type="checkbox" value="tag.id" ng-click="toggleId(tag.id)"><span class = "tag">{{tag.name}}</span></input>
+          </span>
+          <button class = "center-block sub-button" ng-click="submitNewPost()">
+            Create
+          </button><br>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <span ng-repeat="post in posts | filter:search:strict">
+
+        <a ui-sref="show({id: post.id})">
+          <h2 class="post-title">{{post.title}}</h2>
+        </a>
+        <h3 class="post-subtitle date">{{post.date | date:'EEEE'}}</h3>
+        <p>{{post.content}}</p>
+        <small ng-repeat="tag_id in post.tag_ids">
+          {{getTagName(tag_id)}}
+        </br>
+        </small>
+        <hr>
+
+      </span>
+    </div>
+    </div>
+</div>
+</div>
+
+    <!-- <div ng-controller="postsController">
+      <h1>POSTS POSTS POSTS</h1>
+      <a ui-sref=".new">Add a new post</a>
+      <div ui-view="new"></div>
+      {{name}}
+    </div>
+    <div ng-controller="homeController">
+      Search: <input type="text" ng-model="search"/>
+      Search by title: <input type="text" ng-model="search.title">
+      <br>
+      Tags: <span ng-repeat="tag in tags">
+        <input type="checkbox" value="tag.id" ng-click="addTag(tag.id)">{{tag.name}}</input>
+      </span><br>
+      tag array is {{tagArray}}<br>
+
+      search is: {{search}}
+      <br><br><hr>
+      <div class="form">
+        Title: <input type="text" ng-model="newPost.title"/>
+        Content: <input type="text" ng-model="newPost.content"/>
+        Tags: <span ng-repeat="tag in tags">
+          <input type="checkbox" value="tag.id" ng-click="toggleId(tag.id)">{{tag.name}}</input>
+        </span>
+        <button ng-click="submitNewPost()">
+          Create a new post
+        </button>
+      </div>
+      the new post is: {{newPost}}
+
+      <span ng-repeat="post in posts | filter:search:strict">
+
+        <a ui-sref="show({id: post.id})">
+          <h2>{{post.title}}</h2><br>
+        </a>
+
+        <small ng-repeat="tag_id in post.tag_ids">
+          {{getTagName(tag_id)}}
+        </small>
+
+        <span>{{post.date | date:'EEEE'}}</span><br>
+        <p>{{post.content}}</p>
+        <hr>
+      </span>
+      {{tags}}
+    </div> -->
